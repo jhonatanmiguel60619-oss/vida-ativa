@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Vida Ativa — Programa de Hábitos Saudáveis</title>
+<meta name="description" content="Vida Ativa: um programa online com conteúdos práticos sobre hábitos saudáveis, alimentação equilibrada, sono, hidratação e atividade física segura.">
+<style>
+:root{
+  --blue:#1268f3; --blue2:#55c8ff; --navy:#102d66; --purple:#7652f4;
+  --orange:#ffab16; --cyan:#10b9c9; --pink:#ff6682; --bg:#f7faff;
+  --text:#12295c; --muted:#61749a; --card:#fff; --shadow:0 18px 45px rgba(24,64,130,.12);
+}
+*{box-sizing:border-box} html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--text);background:var(--bg);line-height:1.55}
+a{text-decoration:none;color:inherit}.wrap{width:min(1120px,calc(100% - 32px));margin:auto}
+header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.94);backdrop-filter:blur(14px);border-bottom:1px solid #e9eef7}
+.nav{height:72px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{display:flex;align-items:center;gap:11px;font-weight:900;font-size:21px}.logo{width:43px;height:43px;border-radius:13px;background:linear-gradient(135deg,var(--blue),var(--cyan));display:grid;place-items:center;color:white;font-size:23px}
+nav{display:flex;gap:25px;font-weight:700;color:#52688f;font-size:14px}nav a:hover{color:var(--blue)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:14px;padding:14px 22px;font-weight:800;font-size:15px;cursor:pointer;transition:.2s;box-shadow:0 8px 20px rgba(18,104,243,.18)}
+.btn-primary{background:var(--blue);color:white}.btn-primary:hover{transform:translateY(-2px);filter:brightness(1.05)}
+.btn-light{background:white;color:var(--blue);border:1px solid #d9e6ff;box-shadow:none}
+.hero{padding:68px 0 46px;background:radial-gradient(circle at 90% 10%,#dff7ff,transparent 35%),linear-gradient(180deg,#fff,#f3f8ff)}
+.hero-grid{display:grid;grid-template-columns:1.08fr .92fr;align-items:center;gap:45px}
+.badge{display:inline-flex;align-items:center;gap:8px;background:#e8f2ff;color:var(--blue);font-weight:800;padding:8px 12px;border-radius:999px;font-size:13px}
+h1{font-size:clamp(38px,6vw,64px);line-height:1.05;margin:18px 0 16px;letter-spacing:-2px}
+h1 span{color:var(--blue)}.hero p{font-size:19px;color:var(--muted);max-width:650px}.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.hero-art{min-height:360px;border-radius:30px;background:linear-gradient(145deg,#dff5ff,#eef0ff);position:relative;overflow:hidden;box-shadow:var(--shadow);display:grid;place-items:center}
+.hero-art .circle{width:230px;height:230px;border-radius:50%;background:linear-gradient(145deg,#fff,#d6edff);display:grid;place-items:center;font-size:100px;box-shadow:0 25px 50px rgba(35,91,170,.15)}
+.hero-art:after{content:"";position:absolute;width:170px;height:170px;background:#ffe89a;border-radius:50%;right:-45px;top:-45px;opacity:.8}
+.section{padding:70px 0}.section-head{text-align:center;max-width:720px;margin:0 auto 38px}.eyebrow{color:var(--blue);font-weight:900;text-transform:uppercase;font-size:12px;letter-spacing:1.5px}
+h2{font-size:clamp(28px,4vw,42px);line-height:1.1;margin:9px 0 10px} .section-head p{color:var(--muted)}
+.benefits{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.benefit{background:#fff;padding:25px;border-radius:22px;box-shadow:var(--shadow);border:1px solid #edf2fa}.ico{font-size:30px}.benefit h3{margin:12px 0 5px}.benefit p{margin:0;color:var(--muted);font-size:14px}
+.modules{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.module{background:#fff;border-radius:24px;overflow:hidden;box-shadow:var(--shadow);border:1px solid #e7edf7;display:grid;grid-template-columns:150px 1fr}
+.module-img{min-height:210px;display:grid;place-items:center;font-size:65px}.m1{background:linear-gradient(145deg,#dff3ff,#b9dcff)}.m2{background:linear-gradient(145deg,#fff1c9,#ffd66e)}.m3{background:linear-gradient(145deg,#eee8ff,#cfc2ff)}.m4{background:linear-gradient(145deg,#d9fbff,#9deaf0)}
+.module-body{padding:23px}.tag{font-size:11px;font-weight:900;padding:6px 9px;border-radius:999px;background:#eef4ff;color:var(--blue)}.module h3{margin:13px 0 7px;font-size:20px}.module p{color:var(--muted);font-size:14px;margin:0 0 17px}
+.offer{background:linear-gradient(135deg,#0f56d9,#18b9dc);color:#fff;border-radius:30px;padding:45px;text-align:center;box-shadow:var(--shadow)}.offer p{max-width:650px;margin:10px auto 22px;color:#e7f8ff}.price{font-size:42px;font-weight:950;margin:8px}.offer .btn{background:#fff;color:#0755d5}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.step{background:#fff;border-radius:20px;padding:24px;border:1px solid #e7edf7}.num{width:38px;height:38px;border-radius:50%;background:#e9f2ff;color:var(--blue);display:grid;place-items:center;font-weight:900}
+.faq{max-width:800px;margin:auto}.faq details{background:#fff;border:1px solid #e4ebf5;border-radius:16px;padding:17px 19px;margin:10px 0;box-shadow:0 7px 20px rgba(20,50,100,.05)}summary{font-weight:800;cursor:pointer}
+footer{padding:35px 0;background:#fff;border-top:1px solid #e6edf7;color:var(--muted);font-size:13px}.foot{display:flex;justify-content:space-between;gap:20px;align-items:center}
+@media(max-width:760px){
+  .wrap{width:min(100% - 22px,1120px)}header{position:sticky}.nav{height:64px}.brand{font-size:18px}.logo{width:38px;height:38px}nav{display:none}
+  .hero{padding:38px 0 30px}.hero-grid{grid-template-columns:1fr;gap:28px}h1{font-size:42px;letter-spacing:-1.4px}.hero p{font-size:16px}.hero-art{min-height:245px;border-radius:24px}.hero-art .circle{width:150px;height:150px;font-size:65px}
+  .section{padding:48px 0}.benefits,.steps{grid-template-columns:1fr}.modules{grid-template-columns:1fr}.module{grid-template-columns:105px 1fr}.module-img{min-height:230px;font-size:45px}.module-body{padding:18px}.module h3{font-size:17px}
+  .offer{padding:30px 18px}.price{font-size:36px}.foot{flex-direction:column;text-align:center}
+}
+
+/* --- VIDA ATIVA: visual enhancement --- */
+.hero{position:relative;overflow:hidden}
+.hero:before,.hero:after{content:"";position:absolute;border-radius:50%;filter:blur(2px);pointer-events:none}
+.hero:before{width:220px;height:220px;background:#c9f3ff;right:-80px;bottom:-80px}
+.hero:after{width:150px;height:150px;background:#e5d9ff;left:-70px;top:70px}
+.hero-grid,.section,.wrap{position:relative;z-index:1}
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:30px}
+.kpi{background:#fff;border:1px solid #e5edf9;border-radius:18px;padding:15px;box-shadow:0 10px 28px rgba(24,64,130,.08)}
+.kpi strong{display:block;font-size:23px}.kpi span{font-size:12px;color:var(--muted)}
+.visual-strip{margin-top:20px;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.visual-card{min-height:125px;border-radius:22px;padding:18px;color:#fff;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;position:relative}
+.visual-card b,.visual-card span{position:relative;z-index:1}.visual-card b{font-size:18px}.visual-card span{font-size:12px;opacity:.95}
+.visual-card.one{background:linear-gradient(135deg,#1684f8,#36c9e7)}
+.visual-card.two{background:linear-gradient(135deg,#7755ee,#b17af7)}
+.module-img{position:relative}.module-img:after{content:"";position:absolute;width:75px;height:75px;border-radius:50%;background:rgba(255,255,255,.35);right:-18px;top:-18px}
+.testimonial{background:#fff;border:1px solid #e7edf7;border-radius:24px;padding:27px;box-shadow:var(--shadow);max-width:820px;margin:auto;text-align:center}
+.testimonial .stars{letter-spacing:3px;font-size:20px}.testimonial p{font-size:17px;color:#536989}
+.guarantee{display:flex;gap:15px;align-items:center;justify-content:center;margin-top:20px;color:#e9fbff;font-size:13px}
+@media(max-width:760px){.kpis{grid-template-columns:1fr 1fr}.kpi:last-child{grid-column:1/-1}.visual-strip{grid-template-columns:1fr}}
+</style>
+
+<style>
+  :root{
+    --va-blue:#2563eb; --va-cyan:#06b6d4; --va-purple:#7c3aed;
+    --va-yellow:#f59e0b; --va-pink:#ec4899; --va-ink:#0f172a;
+    --va-soft:#f8fafc;
+  }
+  body{background:linear-gradient(180deg,#fff 0%,#f8fbff 45%,#fff 100%);}
+  .container{max-width:1120px;}
+  .hero{position:relative;overflow:hidden;background:
+    radial-gradient(circle at 90% 10%,rgba(37,99,235,.16),transparent 30%),
+    radial-gradient(circle at 5% 85%,rgba(124,58,237,.12),transparent 28%);}
+  .hero::after{content:"";position:absolute;width:320px;height:320px;border-radius:50%;
+    border:45px solid rgba(6,182,212,.08);right:-130px;bottom:-150px;pointer-events:none;}
+  .hero-content{position:relative;z-index:1;}
+  .hero-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 13px;border-radius:999px;
+    background:#fff;border:1px solid #dbeafe;box-shadow:0 8px 25px rgba(37,99,235,.09);
+    font-weight:800;color:#1d4ed8;font-size:.85rem;}
+  .hero h1{letter-spacing:-1.8px;}
+  .hero h1 span{background:linear-gradient(90deg,var(--va-blue),var(--va-purple),var(--va-cyan));
+    -webkit-background-clip:text;background-clip:text;color:transparent;}
+  .trust-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px;color:#475569;font-size:.9rem;}
+  .trust-pill{background:#fff;border:1px solid #e2e8f0;border-radius:999px;padding:8px 11px;}
+  .section-title{letter-spacing:-.7px;}
+  .feature-card,.module-card,.testimonial-card,.faq-item{
+    transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease;}
+  .feature-card:hover,.module-card:hover,.testimonial-card:hover{
+    transform:translateY(-5px);box-shadow:0 18px 45px rgba(15,23,42,.10);}
+  .module-card{overflow:hidden;border:1px solid #e5e7eb;background:#fff;}
+  .module-card .module-visual{min-height:150px;display:grid;place-items:center;font-size:4rem;
+    position:relative;overflow:hidden;}
+  .module-card .module-visual::before{content:"";position:absolute;width:150px;height:150px;border-radius:50%;
+    background:rgba(255,255,255,.28);top:-65px;right:-35px;}
+  .module-card:nth-child(1) .module-visual{background:linear-gradient(135deg,#dbeafe,#93c5fd);}
+  .module-card:nth-child(2) .module-visual{background:linear-gradient(135deg,#dcfce7,#86efac);}
+  .module-card:nth-child(3) .module-visual{background:linear-gradient(135deg,#ede9fe,#c4b5fd);}
+  .module-card:nth-child(4) .module-visual{background:linear-gradient(135deg,#fef3c7,#fde68a);}
+  .module-card .module-body{padding:22px;}
+  .module-number{display:inline-flex;padding:5px 9px;border-radius:8px;font-size:.75rem;font-weight:900;
+    background:#eff6ff;color:#1d4ed8;margin-bottom:10px;}
+  .check-list{display:grid;gap:12px;padding:0;margin:18px 0;list-style:none;}
+  .check-list li{display:flex;gap:10px;align-items:flex-start;}
+  .check-list li::before{content:"✓";display:grid;place-items:center;flex:0 0 24px;height:24px;
+    border-radius:50%;background:#dcfce7;color:#15803d;font-weight:900;}
+  .offer-box{position:relative;overflow:hidden;border:1px solid #bfdbfe;
+    background:linear-gradient(135deg,#eff6ff,#faf5ff 55%,#ecfeff);
+    box-shadow:0 24px 70px rgba(37,99,235,.12);}
+  .offer-box::before{content:"";position:absolute;width:240px;height:240px;border-radius:50%;
+    background:rgba(124,58,237,.08);right:-80px;top:-90px;}
+  .price-note{font-size:.85rem;color:#64748b;margin-top:8px;}
+  .cta-main{box-shadow:0 12px 30px rgba(37,99,235,.24);transition:transform .2s ease,box-shadow .2s ease;}
+  .cta-main:hover{transform:translateY(-2px);box-shadow:0 16px 35px rgba(37,99,235,.30);}
+  .mini-guarantee{display:flex;gap:10px;align-items:center;justify-content:center;margin-top:14px;
+    color:#475569;font-size:.84rem;}
+  .sticky-mobile-cta{display:none;}
+  @media(max-width:700px){
+    .hero{padding-top:28px;}
+    .hero h1{font-size:2.35rem;line-height:1.05;}
+    .trust-row{gap:7px;}
+    .trust-pill{font-size:.78rem;padding:7px 9px;}
+    .sticky-mobile-cta{display:flex;position:fixed;z-index:50;left:12px;right:12px;bottom:12px;
+      padding:10px;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);
+      border:1px solid #e2e8f0;border-radius:16px;box-shadow:0 12px 35px rgba(15,23,42,.16);}
+    .sticky-mobile-cta a{width:100%;text-align:center;}
+    body{padding-bottom:76px;}
+  }
+</style>
+
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#"><span class="logo">✦</span><span>Vida <span style="color:#1268f3">Ativa</span></span></a>
+    <nav><a href="#inicio">Início</a><a href="#beneficios">Benefícios</a><a href="#modulos">Módulos</a><a href="#como-funciona">Como funciona</a><a href="#faq">Dúvidas</a></nav>
+    <a class="btn btn-primary" href="#comprar">Quero começar</a>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="inicio">
+<div class="wrap hero-grid">
+<div>
+  <div class="badge">✨ Programa online de hábitos saudáveis</div>
+  <h1>Pequenos hábitos.<br><span>Grandes mudanças.</span></h1>
+  <p>Conheça o <strong>Vida Ativa</strong>, um programa educativo organizado em módulos para ajudar você a aprender mais sobre hábitos saudáveis e construir uma rotina melhor, um passo de cada vez.</p>
+  <div class="actions"><a class="btn btn-primary" href="#comprar">Quero começar agora →</a><a class="btn btn-light" href="#modulos">Conhecer os módulos</a></div>
+</div>
+<div class="hero-art" aria-label="Ilustração de vida saudável">
+  <div class="circle">🌱</div>
+  <div style="position:absolute;left:18px;top:18px;background:#fff;padding:9px 12px;border-radius:14px;font-size:12px;font-weight:800;box-shadow:0 8px 20px rgba(20,60,120,.1)">💙 Bem-estar</div>
+  <div style="position:absolute;right:18px;bottom:18px;background:#fff;padding:9px 12px;border-radius:14px;font-size:12px;font-weight:800;box-shadow:0 8px 20px rgba(20,60,120,.1)">✨ Pequenos passos</div>
+</div>
+</div>
+</section>
+
+<section class="section" style="padding-top:28px">
+<div class="wrap">
+  <div class="kpis">
+    <div class="kpi"><strong>04</strong><span>Módulos educativos</span></div>
+    <div class="kpi"><strong>100%</strong><span>Online e organizado</span></div>
+    <div class="kpi"><strong>✨</strong><span>Aprendizado gradual</span></div>
+  </div>
+  <div class="visual-strip">
+    <div class="visual-card one"><b>Uma rotina mais consciente</b><span>Conteúdos para acompanhar no seu ritmo.</span></div>
+    <div class="visual-card two"><b>Seu próximo passo começa aqui</b><span>Explore os módulos e avance um dia de cada vez.</span></div>
+  </div>
+</div>
+</section>
+
+<section class="section" id="beneficios">
+<div class="wrap">
+<div class="section-head"><div class="eyebrow">Por que Vida Ativa?</div><h2>Um jeito simples de aprender e evoluir</h2><p>Conteúdo direto, organizado e fácil de acompanhar.</p></div>
+<div class="benefits">
+<div class="benefit"><div class="ico">🎯</div><h3>Prático</h3><p>Conteúdos organizados para você entender e aplicar no dia a dia.</p></div>
+<div class="benefit"><div class="ico">📚</div><h3>Organizado</h3><p>Módulos separados por temas para facilitar sua jornada.</p></div>
+<div class="benefit"><div class="ico">✨</div><h3>Gradual</h3><p>Aprenda sobre pequenas mudanças sem precisar transformar tudo de uma vez.</p></div>
+</div>
+</div>
+</section>
+
+<section class="section" id="modulos" style="background:#fff">
+<div class="wrap">
+<div class="section-head"><div class="eyebrow">Conteúdo</div><h2>Conheça os módulos</h2><p>Uma jornada educativa sobre diferentes áreas de uma rotina saudável.</p></div>
+<div class="modules">
+<article class="module"><div class="module-img m1">🌅</div><div class="module-body"><span class="tag">MÓDULO 01</span><h3>Microhábitos Essenciais</h3><p>Pequenas mudanças para começar uma rotina mais saudável.</p><a class="btn btn-primary" href="#comprar">Acessar módulo →</a></div></article>
+<article class="module"><div class="module-img m2">🥗</div><div class="module-body"><span class="tag" style="color:#b66a00;background:#fff4d5">MÓDULO 02</span><h3>Equilíbrio Alimentar</h3><p>Princípios básicos para uma alimentação equilibrada.</p><a class="btn btn-primary" style="background:#f39b00" href="#comprar">Acessar módulo →</a></div></article>
+<article class="module"><div class="module-img m3">😴</div><div class="module-body"><span class="tag" style="color:#6542d7;background:#eee9ff">MÓDULO 03</span><h3>Higiene, Sono e Hidratação</h3><p>Hábitos importantes para cuidar da rotina diária.</p><a class="btn btn-primary" style="background:#7652f4" href="#comprar">Acessar módulo →</a></div></article>
+<article class="module"><div class="module-img m4">🏃</div><div class="module-body"><span class="tag" style="color:#078a98;background:#e2fbfd">MÓDULO 04</span><h3>Início Seguro</h3><p>Como começar uma rotina de atividade física com segurança.</p><a class="btn btn-primary" style="background:#10aebd" href="#comprar">Acessar módulo →</a></div></article>
+</div>
+</div>
+</section>
+
+<section class="section">
+<div class="wrap">
+<div class="offer" id="comprar">
+<div class="eyebrow" style="color:#dff8ff">COMECE SUA JORNADA</div>
+<h2 style="margin-top:8px">Vida Ativa — Programa de Hábitos Saudáveis</h2>
+<p>Tenha acesso a uma experiência educativa organizada para aprender sobre hábitos, alimentação, sono, hidratação, higiene e atividade física segura.</p>
+<div class="price">Seu acesso começa aqui</div>
+<div class="guarantee">🔒 Compra e acesso conforme a configuração da sua plataforma de checkout</div><br><a class="btn" href="#" onclick="alert('Configure aqui o link de checkout da Cakto antes de publicar.');return false;">QUERO COMEÇAR AGORA →</a>
+</div>
+</div>
+</section>
+
+<section class="section" id="como-funciona">
+<div class="wrap">
+<div class="section-head"><div class="eyebrow">Como funciona</div><h2>Comece em 3 passos</h2></div>
+<div class="steps">
+<div class="step"><div class="num">1</div><h3>Adquira seu acesso</h3><p>Finalize a compra pela sua página de checkout.</p></div>
+<div class="step"><div class="num">2</div><h3>Explore os módulos</h3><p>Conheça os conteúdos e avance no seu ritmo.</p></div>
+<div class="step"><div class="num">3</div><h3>Construa conhecimento</h3><p>Use o que aprendeu para refletir sobre sua rotina e seus hábitos.</p></div>
+</div>
+</div>
+</section>
+
+<section class="section">
+<div class="wrap">
+  <div class="testimonial">
+    <div class="stars">★★★★★</div>
+    <p>“Gostei da organização dos conteúdos. Fica muito mais fácil entender cada tema e acompanhar a jornada.”</p>
+    <strong>Experiência de aprendizado</strong>
+  </div>
+</div>
+</section>
+
+<section class="section" id="faq" style="background:#fff">
+<div class="wrap">
+<div class="section-head"><div class="eyebrow">Dúvidas</div><h2>Perguntas frequentes</h2></div>
+<div class="faq">
+<details><summary>O que é o Vida Ativa?</summary><p>É um programa online educativo com conteúdos organizados em módulos sobre hábitos saudáveis e rotina.</p></details>
+<details><summary>Preciso fazer todos os módulos de uma vez?</summary><p>Não. A proposta é acompanhar os conteúdos de forma gradual e no seu próprio ritmo.</p></details>
+<details><summary>O Vida Ativa substitui um profissional de saúde?</summary><p>Não. O conteúdo é educativo e não substitui avaliação, diagnóstico ou orientação individual de profissionais de saúde.</p></details>
+<details><summary>Como recebo meu acesso?</summary><p>Após configurar seu produto na Cakto, o acesso deverá ser entregue conforme a configuração de entrega escolhida na plataforma.</p></details>
+</div>
+</div>
+</section>
+</main>
+
+<footer><div class="wrap foot"><strong style="color:#102d66">✦ Vida Ativa</strong><span>© <span id="year"></span> Vida Ativa. Conteúdo educativo.</span><span>Sua saúde é o seu maior bem. 💙</span></div></footer>
+<script>document.getElementById('year').textContent=new Date().getFullYear();</script>
+
+<script>
+document.documentElement.style.scrollBehavior = 'smooth';
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const id=a.getAttribute('href');
+    if(id && id!=='#'){
+      const el=document.querySelector(id);
+      if(el){e.preventDefault();el.scrollIntoView({behavior:'smooth',block:'start'});}
+    }
+  });
+});
+</script>
+
+</body>
+</html>
